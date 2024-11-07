@@ -35,7 +35,5 @@ class _ToDoItemState extends State<ToDoItem> {
         onPressed: widget.onDelete,
       ),
     );
-
-    return const Placeholder();
   }
 }
