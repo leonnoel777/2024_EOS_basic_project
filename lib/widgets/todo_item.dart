@@ -4,8 +4,7 @@ class ToDoItem extends StatefulWidget {
   final String title;
   final VoidCallback onDelete;
 
-  const ToDoItem({Key? key, required this.title, required this.onDelete})
-      : super(key: key);
+  const ToDoItem({super.key, required this.title, required this.onDelete});
   @override
   State<ToDoItem> createState() => _ToDoItemState();
 }
@@ -21,6 +20,7 @@ class _ToDoItemState extends State<ToDoItem> {
           color: Colors.grey,
         ),
         onPressed: () {
+          // from StatefulWidget
           setState(() {
             isClicked = !isClicked;
           });
@@ -28,7 +28,7 @@ class _ToDoItemState extends State<ToDoItem> {
       ),
       title: Text(widget.title),
       trailing: IconButton(
-        icon: Icon(
+        icon: const Icon(
           Icons.delete,
           color: Colors.grey,
         ),
