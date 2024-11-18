@@ -1,3 +1,4 @@
+import 'package:eos_todolist/screens/setting_screen.dart';
 import 'package:eos_todolist/widgets/add_button.dart';
 import 'package:eos_todolist/widgets/todo_item.dart';
 import 'package:flutter/cupertino.dart';
@@ -36,6 +37,13 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: false,
         title: const Text('EOS ToDoList'),
         leading: Image.asset('assets/images/eos_logo.png'),
+        actions: [
+          IconButton(onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => SettingScreen()));
+          },
+            icon: Icon(Icons.settings_rounded),
+          ),
+        ],
       ),
       body: Column(
         children: [
@@ -47,13 +55,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 Container(
                   width: 140,
                   height: 140,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(width: 10, color: Colors.grey),
-                    borderRadius: BorderRadius.circular(70),
-                  ),
-                  child: Center(
-                    child: Image.asset('assets/images/eos_logo.png'),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(80),
+                    child: Image.asset(
+                      'assets/images/kijae.png',
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -159,13 +166,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 borderSide: BorderSide(color: Colors.black),
               ),
             ),
+            maxLength: 20,
           ),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text("취소"),
+              child: const Text(
+                "취소",
+                style: TextStyle(color: Colors.black),
+              ),
             ),
             TextButton(
               onPressed: () {
@@ -177,7 +188,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.of(context).pop();
                 }
               },
-              child: const Text("추가"),
+              child: const Text(
+                "추가",
+                style: TextStyle(color: Colors.black),
+              ),
             ),
           ],
         );
